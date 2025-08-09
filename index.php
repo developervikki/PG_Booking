@@ -1,5 +1,6 @@
 <?php
 // index.php - Main Landing Page
+require 'config/db.php'; // connect to database
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,21 +33,23 @@
             <h2 class="text-3xl font-bold mb-8 text-center">Featured Rooms</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <?php
-                // Example static data (replace with database data later)
-                $rooms = [
-                    ["image" => "assets/images/room1.jpg", "title" => "Cozy PG in Delhi", "price" => "₹5000/month"],
-                    ["image" => "assets/images/room2.jpg", "title" => "Spacious Room in Noida", "price" => "₹7000/month"],
-                    ["image" => "assets/images/room3.jpg", "title" => "Furnished PG in Ghaziabad", "price" => "₹6500/month"],
-                ];
+                // Fetch latest rooms from database
+                $query = "SELECT room_id, title, price, image FROM rooms ORDER BY created_at DESC LIMIT 6";
+                $result = mysqli_query($conn, $query);
 
-                foreach ($rooms as $room) {
-                    echo '<div class="bg-white shadow-lg rounded-lg overflow-hidden">';
-                    echo '<img src="'.$room['image'].'" alt="'.$room['title'].'" class="w-full h-48 object-cover">';
-                    echo '<div class="p-4">';
-                    echo '<h3 class="text-xl font-semibold mb-2">'.$room['title'].'</h3>';
-                    echo '<p class="text-indigo-600 font-bold">'.$room['price'].'</p>';
-                    echo '<a href="pages/room_details.php" class="mt-3 inline-block text-white bg-indigo-500 px-4 py-2 rounded hover:bg-indigo-600">View Details</a>';
-                    echo '</div></div>';
+                if (mysqli_num_rows($result) > 0) {
+                    while ($room = mysqli_fetch_assoc($result)) {
+                        $imagePath = "uploads/" . htmlspecialchars($room['image']);
+                        echo '<div class="bg-white shadow-lg rounded-lg overflow-hidden">';
+                        echo '<img src="'.$imagePath.'" alt="'.htmlspecialchars($room['title']).'" class="w-full h-48 object-cover">';
+                        echo '<div class="p-4">';
+                        echo '<h3 class="text-xl font-semibold mb-2">'.htmlspecialchars($room['title']).'</h3>';
+                        echo '<p class="text-indigo-600 font-bold">₹'.number_format($room['price']).'/month</p>';
+                        echo '<a href="pages/room_details.php?id='.$room['room_id'].'" class="mt-3 inline-block text-white bg-indigo-500 px-4 py-2 rounded hover:bg-indigo-600">View Details</a>';
+                        echo '</div></div>';
+                    }
+                } else {
+                    echo '<p class="col-span-3 text-center text-gray-500">No rooms available right now.</p>';
                 }
                 ?>
             </div>
