@@ -2,7 +2,7 @@
 session_start();
 include 'db.php'; // Database connection
 include 'header.php';
-?>
+?> 
 
 <!-- Hero Section -->
 <section class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-16">
