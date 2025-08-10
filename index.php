@@ -2,7 +2,7 @@
 // index.php - Main Landing Page
 require 'config/db.php'; // connect to database
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <html lang="en">
 <head>
     <meta charset="UTF-8">
