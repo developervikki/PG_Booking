@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../config/db.php'; // Your DB connection file
-
+ 
 $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
