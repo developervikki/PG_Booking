@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['email']);
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
     $role = $_POST['role']; // 'user', 'owner', 'admin'
-
+ 
     // Check if email already exists
     $check = $conn->prepare("SELECT user_id FROM users WHERE email = ?");
     $check->bind_param("s", $email);
