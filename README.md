@@ -65,7 +65,7 @@ pg-booking/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/pg-booking.git
+   git clone https://github.com/pg-booking.git
 Move the project to your server directory
 
 For XAMPP: C:/xampp/htdocs/pg-booking
