@@ -1,6 +1,7 @@
 <?php
-include 'header.php';
-include 'db.php';
+include '../includes/header.php';
+include '../includes/navbar.php';
+include '../config/db.php';
 
 // Get search inputs
 $location = isset($_GET['location']) ? trim($_GET['location']) : '';
@@ -46,13 +47,14 @@ $result = mysqli_query($conn, $sql);
         <div class="grid md:grid-cols-3 gap-6">
             <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                    <img src="<?php echo $row['image']; ?>" alt="Room Image" class="w-full h-48 object-cover">
+                    
+                    <img src="../uploads/<?php echo htmlspecialchars($row['image']); ?>" alt="Room Image" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h2 class="text-xl font-bold"><?php echo $row['title']; ?></h2>
                         <p class="text-gray-600"><?php echo $row['location']; ?></p>
                         <p class="text-green-600 font-bold">₹<?php echo $row['price']; ?> / month</p>
-                        <p class="text-sm text-gray-500">Type: <?php echo $row['room_type']; ?></p>
-                        <a href="room_details.php?id=<?php echo $row['id']; ?>" class="mt-3 inline-block bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700">View Details</a>
+                        <p class="text-sm text-gray-500">Capacity: <?php echo $row['capacity']; ?></p>
+                        <a href="room_details.php?id=<?php echo $row['room_id']; ?>" class="mt-3 inline-block bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700">View Details</a>
                     </div>
                 </div>
             <?php } ?>
@@ -62,4 +64,4 @@ $result = mysqli_query($conn, $sql);
     <?php } ?>
 </div>
 
-<?php include 'footer.php'; ?>
+<?php include '../includes/footer.php'; ?>
