@@ -8,6 +8,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'owner') {
     exit();
 }
 
+
+
 $owner_id = $_SESSION['user_id'];
 
 // Add Room
