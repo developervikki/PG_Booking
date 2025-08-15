@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: ../auth/login.php');
     exit;
 }
-
+ 
 // Get room ID from URL
 if (!isset($_GET['room_id'])) {
     die("Room ID not specified.");
