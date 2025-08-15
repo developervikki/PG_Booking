@@ -4,7 +4,7 @@ require '../config/db.php';
 session_start();
 
 // Ensure only admin or owner can access
-if (!isset($_SESSION['user_id']) || !in_array($_SESSION['user_role'], ['admin', 'owner'])) {
+if (!isset($_SESSION['user_id']) || !in_array($_SESSION['user_role'], ['admin', 'owner'])) { 
     header("Location: ../auth/login.php");
     exit();
 }
