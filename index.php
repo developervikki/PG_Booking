@@ -6,7 +6,7 @@ require 'config/db.php'; // connect to database
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
     <title>PG Booking - Find Your Perfect Stay</title>
     <meta name="description" content="Find & book affordable PGs and rooms easily. Explore categories, featured rooms, customer testimonials, and start your booking today!" />
     <link href="assets/css/tailwind.min.css" rel="stylesheet" />
