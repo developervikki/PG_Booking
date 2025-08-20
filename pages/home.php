@@ -10,7 +10,7 @@ include 'header.php';
         <h1 class="text-4xl md:text-5xl font-bold mb-4">Find Your Perfect PG or Hostel</h1>
         <p class="text-lg mb-6">Search from thousands of verified PGs, hostels, and rental rooms across India.</p>
         
-        <!-- Search Form -->
+        <!-- Search Form --> 
         <form action="search.php" method="GET" class="flex flex-col md:flex-row items-center justify-center gap-2">
             <input type="text" name="location" placeholder="Enter location" class="px-4 py-2 rounded-lg text-black w-full md:w-1/3" required>
             <select name="type" class="px-4 py-2 rounded-lg text-black w-full md:w-1/4">
