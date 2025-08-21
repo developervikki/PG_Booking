@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); 
 require 'db.php';
 
 // Check if user is logged in and has admin or owner role
