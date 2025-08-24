@@ -5,7 +5,7 @@ require_once '../config/db.php';
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     header('Location: ../auth/login.php');
-    exit;
+    exit; 
 }
  
 // Get room ID from URL
