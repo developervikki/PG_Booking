@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'db.php';
-
+ 
 // Check if owner is logged in 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'owner') {
     header("Location: login.php");
